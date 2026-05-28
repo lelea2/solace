@@ -18,6 +18,12 @@ const prototypes = [
     description: "Add tasks, track them, and delete when done.",
     icon: "✅",
   },
+  {
+    href: "/ui-prototype/claude-chat-clone",
+    title: "Claude Chat",
+    description: "A simple Claude chat component prototype.",
+    icon: "💬",
+  },
 ];
 
 export default function UIPrototypePage() {
