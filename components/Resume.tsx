@@ -1,6 +1,6 @@
 const experience = [
   {
-    role: "Staff Software Engineer — ML Observability",
+    role: "Engineer Manager — ML Observability",
     company: "LinkedIn",
     period: "Aug 2024 – Present",
     color: "#0A66C2",
@@ -173,7 +173,7 @@ export default function Resume() {
             Khanh Dao
           </h1>
           <p className="text-slate-300 text-lg mb-6">
-            Staff Software Engineer &middot; UI Platform &middot; Developer Experience
+            Staff Software Engineer / Engineering Manager &middot; UI Platform &middot; Developer Experience
           </p>
           <div className="flex flex-wrap gap-4 text-sm text-slate-400">
             <a href="mailto:kareendao88@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors">
@@ -313,7 +313,7 @@ export default function Resume() {
       {/* ── FOOTER ─────────────────────────────────────────── */}
       <footer className="border-t border-slate-100 bg-slate-50">
         <div className="max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-slate-500">&copy; 2026 Khanh Dao &mdash; Staff Software Engineer</p>
+          <p className="text-sm text-slate-500">&copy; 2026 Khanh Dao &mdash; Staff Software Engineer / Engineering Manager</p>
           <div className="flex gap-5 text-sm">
             <a href="mailto:kareendao88@gmail.com" className="text-slate-400 hover:text-slate-900 transition-colors">Email</a>
             <a href="https://linkedin.com/in/khanh-dao-23062119" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors">LinkedIn</a>

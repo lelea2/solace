@@ -7,13 +7,13 @@ const SYSTEM_PROMPT = `You are Claude, an AI assistant made by Anthropic. You ar
 
 function TypingIndicator() {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: "4px", padding: "4px 0" }}>
+    <div className="flex items-center gap-1 py-1">
       {[0, 1, 2].map(i => (
-        <div key={i} style={{
-          width: "6px", height: "6px", borderRadius: "50%",
-          background: "#D4956A", opacity: 0.7,
-          animation: `bounce 1.2s ease-in-out ${i * 0.2}s infinite`,
-        }}/>
+        <div
+          key={i}
+          className="w-1.5 h-1.5 rounded-full bg-[#D4956A] opacity-70 animate-[bounce_1.2s_ease-in-out_infinite]"
+          style={{ animationDelay: `${i * 0.2}s` }}
+        />
       ))}
     </div>
   );
@@ -22,47 +22,23 @@ function TypingIndicator() {
 function Message({ msg }: { msg: { role: string; content: string; error?: string } }) {
   const isUser = msg.role === "user";
   return (
-    <div style={{
-      display: "flex",
-      flexDirection: isUser ? "row-reverse" : "row",
-      gap: "12px",
-      alignItems: "flex-start",
-      padding: "4px 0",
-      animation: "fadeSlideIn 0.25s ease forwards",
-    }}>
-      {/* Avatar */}
-      <div style={{
-        flexShrink: 0,
-        width: "34px", height: "34px",
-        borderRadius: isUser ? "10px" : "50%",
-        background: isUser ? "#2D2D2D" : "#FDF0E6",
-        display: "flex", alignItems: "center", justifyContent: "center",
-        color: isUser ? "#C8C8C8" : "#D4956A",
-        border: isUser ? "1px solid #3A3A3A" : "1.5px solid #D4956A33",
-        marginTop: "2px",
-      }}>
+    <div className={`flex gap-3 items-start py-1 animate-[fadeSlideIn_0.25s_ease_forwards] ${isUser ? "flex-row-reverse" : "flex-row"}`}>
+      <div className={`shrink-0 w-[34px] h-[34px] flex items-center justify-center mt-0.5
+        ${isUser
+          ? "rounded-[10px] bg-[#2D2D2D] border border-[#3A3A3A] text-[#C8C8C8]"
+          : "rounded-full bg-[#FDF0E6] border-[1.5px] border-[#D4956A33] text-[#D4956A]"
+        }`}>
         {isUser ? <UserIcon /> : <ClaudeIcon />}
       </div>
 
-      {/* Bubble */}
-      <div style={{
-        maxWidth: "72%",
-        background: isUser ? "#1C1C1E" : "#141414",
-        border: isUser ? "1px solid #2D2D2D" : "1px solid #1F1F1F",
-        borderRadius: isUser ? "18px 4px 18px 18px" : "4px 18px 18px 18px",
-        padding: "12px 16px",
-        color: isUser ? "#E8E8E8" : "#D4D4D4",
-        fontSize: "14px",
-        lineHeight: "1.65",
-        fontFamily: "'Georgia', serif",
-        letterSpacing: "0.01em",
-        whiteSpace: "pre-wrap",
-        wordBreak: "break-word",
-        boxShadow: isUser ? "none" : "0 1px 12px rgba(0,0,0,0.3)",
-      }}>
+      <div className={`max-w-[72%] py-3 px-4 text-sm leading-[1.65] font-serif tracking-[0.01em] whitespace-pre-wrap break-words
+        ${isUser
+          ? "bg-[#1C1C1E] border border-[#2D2D2D] rounded-[18px_4px_18px_18px] text-[#E8E8E8]"
+          : "bg-[#141414] border border-[#1F1F1F] rounded-[4px_18px_18px_18px] text-[#D4D4D4] shadow-[0_1px_12px_rgba(0,0,0,0.3)]"
+        }`}>
         {msg.content === "__typing__" ? <TypingIndicator /> : msg.content}
         {msg.error && (
-          <div style={{ color: "#E05A5A", fontSize: "12px", marginTop: "6px", fontFamily: "monospace" }}>
+          <div className="text-[#E05A5A] text-xs mt-1.5 font-mono">
             ⚠ {msg.error}
           </div>
         )}
@@ -71,17 +47,20 @@ function Message({ msg }: { msg: { role: string; content: string; error?: string
   );
 }
 
+type Message = { role: string; content: string; id?: string; error?: string };
+type Conversation = { id: number; title: string; messages: Message[] };
+
 export default function App() {
-  const [conversations, setConversations] = useState([
+  const [conversations, setConversations] = useState<Conversation[]>([
     { id: 1, title: "New conversation", messages: [] }
   ]);
   const [activeId, setActiveId] = useState(1);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const messagesEndRef = useRef(null);
-  const textareaRef = useRef(null);
-  const abortRef = useRef(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const abortRef = useRef<AbortController | null>(null);
   const nextId = useRef(2);
 
   const activeConvo = conversations.find(c => c.id === activeId);
@@ -98,7 +77,7 @@ export default function App() {
     }
   }, [input]);
 
-  function updateConvo(id, updater) {
+  function updateConvo(id: number, updater: (c: Conversation) => Conversation) {
     setConversations(prev => prev.map(c => c.id === id ? updater(c) : c));
   }
 
@@ -117,7 +96,6 @@ export default function App() {
     const userMsg = { role: "user", content: text };
     const typingMsg = { role: "assistant", content: "__typing__", id: "typing" };
 
-    // Update title from first message
     const isFirst = messages.length === 0;
     updateConvo(activeId, c => ({
       ...c,
@@ -147,7 +125,7 @@ export default function App() {
       });
 
       const data = await res.json();
-      const reply = data.content?.map(b => b.text || "").join("") || "No response.";
+      const reply = data.content?.map((b: { text: string }) => b.text || "").join("") || "No response.";
       const assistantMsg = { role: "assistant", content: reply };
 
       updateConvo(activeId, c => ({
@@ -155,7 +133,8 @@ export default function App() {
         messages: [...c.messages.filter(m => m.id !== "typing"), assistantMsg],
       }));
     } catch (err) {
-      if (err.name === "AbortError") {
+      const error = err as Error;
+      if (error.name === "AbortError") {
         updateConvo(activeId, c => ({
           ...c,
           messages: c.messages.filter(m => m.id !== "typing"),
@@ -164,7 +143,7 @@ export default function App() {
         updateConvo(activeId, c => ({
           ...c,
           messages: [...c.messages.filter(m => m.id !== "typing"),
-            { role: "assistant", content: "", error: err.message }],
+            { role: "assistant", content: "", error: error.message }],
         }));
       }
     } finally {
@@ -177,7 +156,7 @@ export default function App() {
     abortRef.current?.abort();
   }
 
-  function onKeyDown(e) {
+  function onKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
       send();
@@ -193,61 +172,45 @@ export default function App() {
 
   return (
     <div className="flex flex-col items-center gap-8">
-      <div style={{
-        display: "flex", height: "100vh", width: "100%",
-        fontFamily: "'Lora', Georgia, serif",
-        background: "#0A0A0A", color: "#D4D4D4",
-        overflow: "hidden",
-      }}>
+      <div className="flex h-screen w-full font-serif bg-[#0A0A0A] text-[#D4D4D4] overflow-hidden">
 
         {/* Sidebar */}
         {sidebarOpen && (
-          <div style={{
-            width: "240px", flexShrink: 0,
-            background: "#0F0F0F",
-            borderRight: "1px solid #1A1A1A",
-            display: "flex", flexDirection: "column",
-            overflow: "hidden",
-          }}>
+          <div className="w-60 shrink-0 bg-[#0F0F0F] border-r border-r-[#1A1A1A] flex flex-col overflow-hidden">
             {/* Sidebar header */}
-            <div style={{ padding: "20px 16px 12px", borderBottom: "1px solid #1A1A1A" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
+            <div className="pt-5 px-4 pb-3 border-b border-b-[#1A1A1A]">
+              <div className="flex items-center gap-2 mb-4">
                 <ClaudeIcon />
-                <span style={{ fontSize: "15px", fontWeight: "500", color: "#E0E0E0", letterSpacing: "-0.01em" }}>Claude</span>
+                <span className="text-[15px] font-medium text-[#E0E0E0] tracking-[-0.01em]">Claude</span>
               </div>
-              <button className="new-chat-btn" onClick={newChat} style={{
-                width: "100%", display: "flex", alignItems: "center", gap: "8px",
-                padding: "8px 10px", borderRadius: "8px",
-                color: "#999", fontSize: "13px", transition: "background 0.15s",
-              }}>
+              <button
+                className="new-chat-btn w-full flex items-center gap-2 py-2 px-2.5 rounded-lg text-[#999] text-[13px] transition-colors duration-150"
+                onClick={newChat}
+              >
                 <NewChatIcon /> New conversation
               </button>
             </div>
 
             {/* Conversation list */}
-            <div style={{ flex: 1, overflowY: "auto", padding: "8px" }}>
+            <div className="flex-1 overflow-y-auto p-2">
               {conversations.slice().reverse().map(c => (
-                <button key={c.id} className="sidebar-item" onClick={() => setActiveId(c.id)} style={{
-                  width: "100%", textAlign: "left",
-                  padding: "9px 10px", borderRadius: "8px",
-                  fontSize: "13px", fontFamily: "'Lora', serif",
-                  color: c.id === activeId ? "#E0E0E0" : "#777",
-                  background: c.id === activeId ? "#1A1A1A" : "transparent",
-                  transition: "all 0.15s",
-                  whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis",
-                  borderLeft: c.id === activeId ? "2px solid #D4956A" : "2px solid transparent",
-                }}>
+                <button
+                  key={c.id}
+                  className={`sidebar-item w-full text-left py-[9px] px-2.5 rounded-lg text-[13px] font-serif whitespace-nowrap overflow-hidden text-ellipsis transition-all duration-150 border-l-2
+                    ${c.id === activeId
+                      ? "text-[#E0E0E0] bg-[#1A1A1A] border-l-[#D4956A]"
+                      : "text-[#777] bg-transparent border-l-transparent"
+                    }`}
+                  onClick={() => setActiveId(c.id)}
+                >
                   {c.title}
                 </button>
               ))}
             </div>
 
             {/* Model badge */}
-            <div style={{ padding: "12px 16px", borderTop: "1px solid #1A1A1A" }}>
-              <div style={{
-                fontSize: "11px", color: "#444", fontFamily: "'DM Mono', monospace",
-                background: "#141414", padding: "6px 10px", borderRadius: "6px",
-              }}>
+            <div className="py-3 px-4 border-t border-t-[#1A1A1A]">
+              <div className="text-[11px] text-[#444] font-mono bg-[#141414] py-1.5 px-2.5 rounded-md">
                 claude-sonnet-4
               </div>
             </div>
@@ -255,93 +218,72 @@ export default function App() {
         )}
 
         {/* Main */}
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0, position: "relative" }}>
+        <div className="flex-1 flex flex-col min-w-0 relative">
 
           {/* Top bar */}
-          <div style={{
-            height: "52px", flexShrink: 0,
-            borderBottom: "1px solid #161616",
-            display: "flex", alignItems: "center", gap: "10px",
-            padding: "0 16px",
-            background: "#0A0A0A",
-          }}>
-            <button onClick={() => setSidebarOpen(v => !v)} style={{
-              color: "#555", padding: "6px", borderRadius: "6px",
-              fontSize: "18px", lineHeight: 1, transition: "color 0.15s",
-            }}>☰</button>
-            <span style={{ fontSize: "13px", color: "#555", fontFamily: "'DM Mono', monospace" }}>
+          <div className="h-[52px] shrink-0 border-b border-b-[#161616] flex items-center gap-2.5 px-4 bg-[#0A0A0A]">
+            <button
+              onClick={() => setSidebarOpen(v => !v)}
+              className="text-[#555] p-1.5 rounded-md text-lg leading-none transition-colors duration-150"
+            >
+              ☰
+            </button>
+            <span className="text-[13px] text-[#555] font-mono">
               {activeConvo?.title || "New conversation"}
             </span>
             {loading && (
-              <div style={{
-                marginLeft: "auto", fontSize: "11px", color: "#D4956A",
-                fontFamily: "'DM Mono', monospace",
-                animation: "pulse 1.5s ease-in-out infinite",
-              }}>● thinking</div>
+              <div className="ml-auto text-[11px] text-[#D4956A] font-mono animate-[pulse_1.5s_ease-in-out_infinite]">
+                ● thinking
+              </div>
             )}
           </div>
 
           {/* Messages */}
-          <div style={{ flex: 1, overflowY: "auto", padding: "24px 0" }}>
-            <div style={{ maxWidth: "720px", margin: "0 auto", padding: "0 20px" }}>
+          <div className="flex-1 overflow-y-auto py-6">
+            <div className="max-w-[720px] mx-auto px-5">
 
               {messages.length === 0 ? (
-                <div style={{ paddingTop: "60px", animation: "fadeSlideIn 0.4s ease" }}>
+                <div className="pt-[60px] animate-[fadeSlideIn_0.4s_ease]">
                   {/* Welcome */}
-                  <div style={{ textAlign: "center", marginBottom: "40px" }}>
-                    <div style={{
-                      width: "52px", height: "52px", borderRadius: "50%",
-                      background: "#FDF0E6", border: "2px solid #D4956A44",
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      margin: "0 auto 16px",
-                    }}>
+                  <div className="text-center mb-10">
+                    <div className="w-[52px] h-[52px] rounded-full bg-[#FDF0E6] border-2 border-[#D4956A44] flex items-center justify-center mx-auto mb-4">
                       <ClaudeIcon />
                     </div>
-                    <h1 style={{ fontSize: "22px", fontWeight: "400", color: "#D0D0D0", marginBottom: "6px" }}>
+                    <h1 className="text-[22px] font-normal text-[#D0D0D0] mb-1.5">
                       Good to see you
                     </h1>
-                    <p style={{ fontSize: "14px", color: "#555", fontStyle: "italic" }}>
+                    <p className="text-sm text-[#555] italic">
                       What's on your mind today?
                     </p>
                   </div>
 
                   {/* Suggestions */}
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px" }}>
+                  <div className="grid grid-cols-2 gap-2">
                     {suggestions.map((s, i) => (
-                      <button key={i} className="suggestion-btn" onClick={() => setInput(s)} style={{
-                        textAlign: "left", padding: "12px 14px",
-                        background: "#111", border: "1px solid #222",
-                        borderRadius: "10px", color: "#888",
-                        fontSize: "13px", fontFamily: "'Lora', serif",
-                        lineHeight: "1.5", transition: "all 0.15s",
-                      }}>
+                      <button
+                        key={i}
+                        className="suggestion-btn text-left py-3 px-3.5 bg-[#111] border border-[#222] rounded-[10px] text-[#888] text-[13px] font-serif leading-normal transition-all duration-150"
+                        onClick={() => setInput(s)}
+                      >
                         {s}
                       </button>
                     ))}
                   </div>
                 </div>
               ) : (
-                <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+                <div className="flex flex-col gap-4">
                   {messages.map((msg, i) => <Message key={i} msg={msg} />)}
                 </div>
               )}
 
-              <div ref={messagesEndRef} style={{ height: "8px" }} />
+              <div ref={messagesEndRef} className="h-2" />
             </div>
           </div>
 
           {/* Input area */}
-          <div style={{ flexShrink: 0, padding: "16px 20px 20px", background: "#0A0A0A" }}>
-            <div style={{ maxWidth: "720px", margin: "0 auto" }}>
-              <div style={{
-                display: "flex", alignItems: "flex-end", gap: "10px",
-                background: "#111",
-                border: "1px solid #222",
-                borderRadius: "14px",
-                padding: "12px 14px",
-                transition: "border-color 0.2s",
-                boxShadow: "0 0 0 1px #00000040, 0 4px 20px rgba(0,0,0,0.4)",
-              }}>
+          <div className="shrink-0 pt-4 px-5 pb-5 bg-[#0A0A0A]">
+            <div className="max-w-[720px] mx-auto">
+              <div className="flex items-end gap-2.5 bg-[#111] border border-[#222] rounded-[14px] py-3 px-3.5 transition-colors duration-200 shadow-[0_0_0_1px_#00000040,_0_4px_20px_rgba(0,0,0,0.4)]">
                 <textarea
                   ref={textareaRef}
                   value={input}
@@ -349,35 +291,27 @@ export default function App() {
                   onKeyDown={onKeyDown}
                   placeholder="Message Claude…"
                   rows={1}
-                  style={{
-                    flex: 1, fontSize: "14px", color: "#D4D4D4",
-                    fontFamily: "'Lora', Georgia, serif",
-                    lineHeight: "1.6", minHeight: "24px", maxHeight: "160px",
-                  }}
+                  className="flex-1 text-sm text-[#D4D4D4] font-serif leading-[1.6] min-h-6 max-h-40 bg-transparent resize-none outline-none"
                 />
                 {loading ? (
-                  <button onClick={stop} style={{
-                    flexShrink: 0, width: "32px", height: "32px",
-                    borderRadius: "8px", background: "#2A2A2A",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    color: "#888", transition: "all 0.15s",
-                  }}>
+                  <button
+                    onClick={stop}
+                    className="shrink-0 w-8 h-8 rounded-lg bg-[#2A2A2A] flex items-center justify-center text-[#888] transition-all duration-150"
+                  >
                     <StopIcon />
                   </button>
                 ) : (
-                  <button className="send-btn" onClick={send} disabled={!input.trim()} style={{
-                    flexShrink: 0, width: "32px", height: "32px",
-                    borderRadius: "8px",
-                    background: input.trim() ? "#D4956A" : "#1C1C1C",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    color: input.trim() ? "#fff" : "#444",
-                    transition: "all 0.15s",
-                  }}>
+                  <button
+                    className={`send-btn shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-150
+                      ${input.trim() ? "bg-[#D4956A] text-white" : "bg-[#1C1C1C] text-[#444]"}`}
+                    onClick={send}
+                    disabled={!input.trim()}
+                  >
                     <SendIcon />
                   </button>
                 )}
               </div>
-              <p style={{ textAlign: "center", fontSize: "11px", color: "#333", marginTop: "10px", fontFamily: "'DM Mono', monospace" }}>
+              <p className="text-center text-[11px] text-[#333] mt-2.5 font-mono">
                 Shift + Enter for new line · Enter to send
               </p>
             </div>
