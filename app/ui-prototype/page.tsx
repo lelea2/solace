@@ -1,0 +1,55 @@
+import Link from "next/link";
+
+export const metadata = {
+  title: "UI Prototype — Khanh Dao",
+  description: "A collection of UI prototype components and experiments.",
+};
+
+const prototypes = [
+  {
+    href: "/ui-prototype/counter",
+    title: "Counter",
+    description: "A simple counter component to verify project setup.",
+    icon: "🔢",
+  },
+  {
+    href: "/ui-prototype/todo",
+    title: "Todo List",
+    description: "Add tasks, track them, and delete when done.",
+    icon: "✅",
+  },
+];
+
+export default function UIPrototypePage() {
+  return (
+    <div className="min-h-screen bg-slate-950 text-white">
+      <div className="max-w-4xl mx-auto px-6 py-16">
+        <p className="text-slate-400 text-sm font-mono tracking-widest uppercase mb-4">
+          UI Prototype
+        </p>
+        <h1 className="text-4xl font-bold tracking-tight mb-3">Component Lab</h1>
+        <p className="text-slate-400 text-lg mb-12">
+          A collection of prototype components and experiments. Click a tile to explore.
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {prototypes.map(({ href, title, description, icon }) => (
+            <Link
+              key={href}
+              href={href}
+              className="group flex flex-col gap-3 rounded-xl border border-slate-800 bg-slate-900 p-6 hover:border-slate-600 hover:bg-slate-800/60 transition-all"
+            >
+              <span className="text-3xl">{icon}</span>
+              <div>
+                <h2 className="text-base font-semibold text-white group-hover:text-slate-100 mb-1">
+                  {title}
+                </h2>
+                <p className="text-sm text-slate-400 leading-relaxed">{description}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
