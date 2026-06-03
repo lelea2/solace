@@ -24,6 +24,42 @@ const prototypes = [
     description: "A simple Claude chat component prototype.",
     icon: "💬",
   },
+  {
+    href: "/ui-prototype/hacker-news",
+    title: "Hacker News",
+    description: "View the latest news from the hacker community.",
+    icon: "🔥",
+  },
+  {
+    href: "/ui-prototype/file-explorer",
+    title: "File Explorer",
+    description: "A simple file explorer component prototype.",
+    icon: "📁",
+  },
+  {
+    href: "/ui-prototype/accordion",
+    title: "Accordion",
+    description: "A simple accordion component prototype.",
+    icon: "🗂️",
+  },
+  {
+    href: "/ui-prototype/tab",
+    title: "Tab",
+    description: "A simple tab component prototype.",
+    icon: "🏷️",
+  },
+  {
+    href: "/ui-prototype/progress-bar",
+    title: "Progress Bar",
+    description: "A simple progress bar component prototype.",
+    icon: "⏳",
+  },
+  {
+    href: "/ui-prototype/birthyear-histogram",
+    title: "Birth Year Histogram",
+    description: "A simple birth year histogram component prototype.",
+    icon: "📊",
+  }
 ];
 
 export default function UIPrototypePage() {

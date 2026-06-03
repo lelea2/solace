@@ -1,0 +1,22 @@
+.bars {
+  margin-top: 16px;
+}
+
+.progress {
+  width: 300px;
+  height: 16px;
+  border: 1px solid #999;
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: green;
+  transition: width 2000ms linear;
+}
+
+.progress-fill.filled {
+  width: 100%;
+}
