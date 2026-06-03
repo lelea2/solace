@@ -31,17 +31,16 @@ function ProgressBar({ isActive, onComplete }: { isActive: boolean; onComplete: 
 
 export default function App() {
   const [bars, setBars] = useState<string[]>([]);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [completeCount, setCompleteCount] = useState(0);
 
   function addProgressBar() {
     setBars((prev: string[]) => [...prev, crypto.randomUUID()]);
   }
 
   function handleComplete(index: number) {
-    if (index === activeIndex - MAX_CONCURRENT) {
-      return;
+    if (index === completeCount) {
+      setCompleteCount((prev) => prev + 1);
     }
-    setActiveIndex((prev) => Math.min(prev + 1, bars.length));
   }
 
   return (
@@ -49,13 +48,18 @@ export default function App() {
       <p className="text-slate-400 text-sm mb-4">
         Wait for the animation to complete before adding a new one.
       </p>
-      <button onClick={addProgressBar}>Add</button>
+      <button 
+        onClick={addProgressBar} 
+        className="px-4 py-1.5 text-sm border border-slate-500 rounded hover:border-slate-300 hover:text-white transition-colors"
+      >
+        Add
+      </button>
 
-      <div className="bars">
+      <div className="progress-bars">
         {bars.map((id, index) => (
           <ProgressBar
             key={id}
-            isActive={index <= activeIndex}
+            isActive={index >= completeCount && index < completeCount + MAX_CONCURRENT}
             onComplete={() => handleComplete(index)}
           />
         ))}

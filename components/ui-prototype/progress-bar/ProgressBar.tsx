@@ -37,7 +37,7 @@ export default function App() {
       >
         Add
       </button>
-      <div className="bars">
+      <div className="progress-bars">
         {bars.map((id) => (
           <ProgressBar key={id} />
         ))}

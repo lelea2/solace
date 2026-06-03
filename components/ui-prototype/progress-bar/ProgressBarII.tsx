@@ -48,9 +48,14 @@ export default function App() {
       <p className="text-slate-400 text-sm mb-4">
         Wait for the animation to complete before adding a new one.
       </p>
-      <button onClick={addProgressBar}>Add</button>
+      <button 
+        onClick={addProgressBar} 
+        className="px-4 py-1.5 text-sm border border-slate-500 rounded hover:border-slate-300 hover:text-white transition-colors"
+      >
+        Add
+      </button>
 
-      <div className="bars">
+      <div className="progress-bars">
         {bars.map((id, index) => (
           <ProgressBar
             key={id}
