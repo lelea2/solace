@@ -17,7 +17,8 @@ const WINNING_LINES = [
   [2, 4, 6],
 ];
 
-function getWinner(board) {
+function getWinner(board: (string | null)[]): string | null {
+  // return X or O if there is a winner, otherwise return null
   for (const [a, b, c] of WINNING_LINES) {
     if (board[a] && board[a] === board[b] && board[a] === board[c]) {
       return board[a];
@@ -28,8 +29,8 @@ function getWinner(board) {
 }
 
 export default function App() {
-  const [board, setBoard] = useState(Array(9).fill(null));
-  const [isXTurn, setIsXTurn] = useState(true);
+  const [board, setBoard] = useState(Array(9).fill(null)); // flat array of 9 null values
+  const [isXTurn, setIsXTurn] = useState(true);  // true if it's X's turn, false if it's O's turn
 
   const winner = getWinner(board);
   const isDraw = !winner && board.every(Boolean);
@@ -42,10 +43,13 @@ export default function App() {
     status = "Draw!";
   }
 
-  const handleClick = (index) => {
-    if (board[index] || winner) return;
+  const handleClick = (index: number) => {
+    // if board is already filled or game is over, do nothing
+    if (board[index] || winner) {
+      return;
+    }
 
-    const nextBoard = [...board];
+    const nextBoard = [...board]; // update board with new index
     nextBoard[index] = isXTurn ? "X" : "O";
 
     setBoard(nextBoard);

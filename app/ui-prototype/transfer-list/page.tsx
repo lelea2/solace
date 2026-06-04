@@ -1,5 +1,6 @@
 import Link from "next/link";
 import TransferList from "@/components/ui-prototype/transfer-list/TransferList";
+import TransferListII from "@/components/ui-prototype/transfer-list/TransferListII";
 
 export const metadata = {
   title: "Transfer List — UI Prototype",
@@ -27,6 +28,9 @@ export default function TransferListPage() {
 
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <TransferList />
+        </div>
+         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
+          <TransferListII />
         </div>
       </div>
     </div>

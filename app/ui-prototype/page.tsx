@@ -125,7 +125,19 @@ const prototypes = [
     title: "Tic Tac Toe",
     description: "A simple Tic Tac Toe game component prototype.",
     icon: "❌",
-  }
+  },
+  {
+    href: "/ui-prototype/grid-light",
+    title: "Grid Light",
+    description: "A simple Grid Light component prototype.",
+    icon: "💡",
+  },
+  {
+    href: "/ui-prototype/wordle",
+    title: "Wordle",
+    description: "A simple wordle game component prototype.",
+    icon: "🔤",
+  },
 ];
 
 export default function UIPrototypePage() {

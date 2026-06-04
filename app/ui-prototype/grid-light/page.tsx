@@ -1,13 +1,12 @@
 import Link from "next/link";
-import Tictactoe from "@/components/ui-prototype/tic-tac-toe/Tictactoe";
-import Tictactoe_dynamic from "@/components/ui-prototype/tic-tac-toe/Tictactoe_dynamic";
+import GridLight from "@/components/ui-prototype/grid-light/GridLight";
 
 export const metadata = {
-  title: "Tic Tac Toe — UI Prototype",
-  description: "A simple Tic Tac Toe game component prototype.",
+  title: "Grid Light — UI Prototype",
+  description: "A simple Grid Light component prototype.",
 };
 
-export default function TictactoePage() {
+export default function GridLightPage() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <div className="max-w-4xl mx-auto px-6 py-16">
@@ -19,18 +18,15 @@ export default function TictactoePage() {
         </Link>
 
         <p className="text-slate-400 text-sm font-mono tracking-widest uppercase mb-4">
-          UI Prototype · Tic Tac Toe
+          UI Prototype · Grid Light
         </p>
-        <h1 className="text-4xl font-bold tracking-tight mb-3">Tic Tac Toe</h1>
+        <h1 className="text-4xl font-bold tracking-tight mb-3">Grid Light</h1>
         <p className="text-slate-400 text-lg mb-16">
-          A simple Tic Tac Toe game.
+          A simple Grid Light component.
         </p>
 
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
-          <Tictactoe />
-        </div>
-        <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
-          <Tictactoe_dynamic />
+          <GridLight />
         </div>
       </div>
     </div>
