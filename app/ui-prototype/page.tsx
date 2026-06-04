@@ -95,6 +95,36 @@ const prototypes = [
     title: "Generate Table",
     description: "A simple generate table component prototype.",
     icon: "📊",
+  },
+  {
+    href: "/ui-prototype/signup-form",
+    title: "Sign Up Form",
+    description: "A simple sign up form component prototype.",
+    icon: "📝",
+  },
+  {
+    href: "/ui-prototype/book-flight",
+    title: "Book Flight",
+    description: "A simple book flight component prototype.",
+    icon: "✈️",
+  },
+  {
+    href: "/ui-prototype/mortgage-calculator",
+    title: "Mortgage Calculator",
+    description: "A simple mortgage calculator component prototype.",
+    icon: "💰",
+  },
+  {
+    href: "/ui-prototype/transfer-list",
+    title: "Transfer List",
+    description: "A simple transfer list form component prototype.",
+    icon: "🔄",
+  },
+  {
+    href: "/ui-prototype/tic-tac-toe",
+    title: "Tic Tac Toe",
+    description: "A simple Tic Tac Toe game component prototype.",
+    icon: "❌",
   }
 ];
 
@@ -110,7 +140,7 @@ export default function UIPrototypePage() {
           A collection of prototype components and experiments. Click a tile to explore.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {prototypes.map(({ href, title, description, icon }) => (
             <Link
               key={href}
