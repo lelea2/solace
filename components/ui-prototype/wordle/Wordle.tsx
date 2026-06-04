@@ -105,6 +105,7 @@ export default function App() {
       }
     }
 
+    // event listener for handle keydown
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [currentGuess, isGameOver]);

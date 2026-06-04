@@ -138,6 +138,12 @@ const prototypes = [
     description: "A simple wordle game component prototype.",
     icon: "🔤",
   },
+  {
+    href: "/ui-prototype/user-database",
+    title: "User Database",
+    description: "A simple user database component prototype.",
+    icon: "🗄️",
+  }
 ];
 
 export default function UIPrototypePage() {
