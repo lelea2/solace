@@ -78,6 +78,18 @@ const prototypes = [
     description: "A simple like button component prototype.",
     icon: "👍",
   },
+  {
+    href: "/ui-prototype/stop-watch",
+    title: "Stop Watch",
+    description: "A simple stop watch component prototype.",
+    icon: "⏱️",
+  },
+  {
+    href: "/ui-prototype/memory-game",
+    title: "Memory Game",
+    description: "A simple memory game component prototype.",
+    icon: "🧠",
+  },
 ];
 
 export default function UIPrototypePage() {
