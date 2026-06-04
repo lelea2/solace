@@ -90,6 +90,12 @@ const prototypes = [
     description: "A simple memory game component prototype.",
     icon: "🧠",
   },
+  {
+    href: "/ui-prototype/generate-table",
+    title: "Generate Table",
+    description: "A simple generate table component prototype.",
+    icon: "📊",
+  }
 ];
 
 export default function UIPrototypePage() {
