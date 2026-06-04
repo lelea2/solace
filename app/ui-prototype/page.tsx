@@ -59,7 +59,19 @@ const prototypes = [
     title: "Birth Year Histogram",
     description: "A simple birth year histogram component prototype.",
     icon: "📊",
-  }
+  },
+  {
+    href: "/ui-prototype/star-rating",
+    title: "Star Rating",
+    description: "A simple star rating component prototype.",
+    icon: "⭐",
+  },
+  {
+    href: "/ui-prototype/pixel-art",
+    title: "Pixel Art",
+    description: "A simple pixel art component prototype.",
+    icon: "🎨",
+  },
 ];
 
 export default function UIPrototypePage() {
