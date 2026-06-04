@@ -72,6 +72,12 @@ const prototypes = [
     description: "A simple pixel art component prototype.",
     icon: "🎨",
   },
+  {
+    href: "/ui-prototype/like-button",
+    title: "Like Button",
+    description: "A simple like button component prototype.",
+    icon: "👍",
+  },
 ];
 
 export default function UIPrototypePage() {
