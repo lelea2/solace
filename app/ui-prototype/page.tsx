@@ -13,6 +13,18 @@ const prototypes = [
     icon: "🔢",
   },
   {
+    href: "/ui-prototype/analog-clock",
+    title: "Analog Clock",
+    description: "A simple analog clock component.",
+    icon: "⏰",
+  },
+  {
+    href: "/ui-prototype/auth-input",
+    title: "Auth Input",
+    description: "A simple auth input component.",
+    icon: "🔑",
+  },
+  {
     href: "/ui-prototype/todo",
     title: "Todo List",
     description: "Add tasks, track them, and delete when done.",
@@ -143,6 +155,30 @@ const prototypes = [
     title: "User Database",
     description: "A simple user database component prototype.",
     icon: "🗄️",
+  },
+  {
+    href: "/ui-prototype/roll-dice",
+    title: "Roll Dice",
+    description: "A simple dice roller component prototype.",
+    icon: "🎲",
+  },
+  {
+    href: "/ui-prototype/traffic-light",
+    title: "Traffic Light",
+    description: "A simple traffic light component prototype.",
+    icon: "🚦",
+  },
+  {
+    href: "/ui-prototype/connect-four",
+    title: "Connect Four",
+    description: "A simple Connect Four game component prototype.",
+    icon: "🎮",
+  },
+  {
+    href: "/ui-prototype/whack-a-mole",
+    title: "Whack-a-Mole",
+    description: "A simple whack-a-mole game component prototype.",
+    icon: "🐹",
   }
 ];
 
