@@ -179,6 +179,24 @@ const prototypes = [
     title: "Whack-a-Mole",
     description: "A simple whack-a-mole game component prototype.",
     icon: "🐹",
+  },
+  {
+    href: "/ui-prototype/holigrail-layout",
+    title: "Holigrail Layout",
+    description: "A simple holigrail layout component prototype.",
+    icon: "🏗️",
+  },
+  {
+    href: "/ui-prototype/draggable-cell",
+    title: "Draggable Cell",
+    description: "A simple draggable cell component prototype.",
+    icon: "🖱️",
+  },
+  {
+    href: "/ui-prototype/nested-checkbox",
+    title: "Nested Checkbox",
+    description: "A simple nested checkbox component prototype.",
+    icon: "☑️",
   }
 ];
 
