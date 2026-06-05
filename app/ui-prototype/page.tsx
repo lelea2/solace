@@ -204,6 +204,12 @@ const prototypes = [
     description: "A simple image carousel component prototype.",
     icon: "🖼️",
   },
+  {
+    href: "/ui-prototype/modal-dialog",
+    title: "Modal Dialog",
+    description: "A simple modal dialog component prototype.",
+    icon: "💬",
+  }
 ];
 
 export default function UIPrototypePage() {
