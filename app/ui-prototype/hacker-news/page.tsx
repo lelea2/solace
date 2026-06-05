@@ -1,5 +1,7 @@
 import Link from "next/link";
 import HackerNews from "@/components/ui-prototype/hacker-news/HackerNews";
+import JobBoard from "@/components/ui-prototype/hacker-news/JobBoard";
+
 
 export const metadata = {
   title: "Hacker News — UI Prototype",
@@ -27,6 +29,10 @@ export default function HackerNewsPage() {
 
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <HackerNews />
+        </div>
+
+        <div className="rounded-2xl border p-10 border-slate-800 bg-slate-900">
+          <JobBoard />
         </div>
       </div>
     </div>

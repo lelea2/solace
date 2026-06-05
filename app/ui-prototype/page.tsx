@@ -197,7 +197,13 @@ const prototypes = [
     title: "Nested Checkbox",
     description: "A simple nested checkbox component prototype.",
     icon: "☑️",
-  }
+  },
+  {
+    href: "/ui-prototype/carousel",
+    title: "Image Carousel",
+    description: "A simple image carousel component prototype.",
+    icon: "🖼️",
+  },
 ];
 
 export default function UIPrototypePage() {
