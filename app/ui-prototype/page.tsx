@@ -209,6 +209,18 @@ const prototypes = [
     title: "Modal Dialog",
     description: "A simple modal dialog component prototype.",
     icon: "💬",
+  },
+  {
+    href: "/ui-prototype/undo-counter",
+    title: "Undoable Counter",
+    description: "A simple undoable counter component prototype.",
+    icon: "↩️",
+  },
+  {
+    href: "/ui-prototype/data-table",
+    title: "Data Table",
+    description: "A simple data table component prototype.",
+    icon: "📊",
   }
 ];
 
