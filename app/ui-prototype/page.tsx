@@ -221,7 +221,13 @@ const prototypes = [
     title: "Data Table",
     description: "A simple data table component prototype.",
     icon: "📊",
-  }
+  },
+  {
+    href: "/ui-prototype/toggle",
+    title: "Toggle",
+    description: "A simple toggle component prototype.",
+    icon: "🔘",
+  },
 ];
 
 export default function UIPrototypePage() {
