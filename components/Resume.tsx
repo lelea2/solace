@@ -318,6 +318,7 @@ export default function Resume() {
             <a href="mailto:kareendao88@gmail.com" className="text-slate-400 hover:text-slate-900 transition-colors">Email</a>
             <a href="https://linkedin.com/in/khanh-dao-23062119" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors">LinkedIn</a>
             <a href="https://github.com/lelea2" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors">GitHub</a>
+            <a href="/design-principles" className="text-slate-400 hover:text-slate-900 transition-colors">Design Principles</a>
           </div>
         </div>
       </footer>
