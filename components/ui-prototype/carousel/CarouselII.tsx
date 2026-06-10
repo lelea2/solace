@@ -13,6 +13,7 @@ type Props = {
 };
 
 export default function ImageCarousel({ images }: Props) {
+  // Three-state model: currentIndex = visible slot, nextIndex = incoming slot, isAnimating = CSS transition in flight.
   const [currentIndex, setCurrentIndex] = useState(0);
   const [nextIndex, setNextIndex] = useState<number | null>(null);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -20,10 +21,13 @@ export default function ImageCarousel({ images }: Props) {
   if (images.length === 0) return null;
 
   const startTransition = (targetIndex: number) => {
+    // Guard: reject if already animating, next slot already claimed, or target is the current slide.
     if (isAnimating || nextIndex !== null || targetIndex === currentIndex) {
       return;
     }
 
+    // Mount the incoming image first, then trigger animation in the next frame.
+    // Without rAF the browser hasn't painted the second image yet, so the CSS translate would skip.
     setNextIndex(targetIndex);
 
     requestAnimationFrame(() => {
@@ -49,13 +53,13 @@ export default function ImageCarousel({ images }: Props) {
   const handleTransitionEnd = () => {
     if (nextIndex === null) return;
 
+    // Commit state only after the CSS transition finishes — more reliable than setTimeout(duration).
     setCurrentIndex(nextIndex);
-
-    // Reset immediately after committing the new image.
     setNextIndex(null);
     setIsAnimating(false);
   };
 
+  // Two-slot technique: track holds [current, incoming] side by side; CSS translateX(-50%) slides to reveal incoming.
   const activeImage = images[currentIndex];
   const incomingImage = nextIndex !== null ? images[nextIndex] : null;
 
@@ -84,6 +88,7 @@ export default function ImageCarousel({ images }: Props) {
         </div>
       </div>
 
+      {/* disabled during animation so clicks can't queue a second transition mid-flight. */}
       <button
         type="button"
         className={`${styles.navButton} ${styles.leftButton}`}
@@ -103,6 +108,7 @@ export default function ImageCarousel({ images }: Props) {
       </button>
 
       <div className={styles.pageButtons}>
+        {/* key on src — not index — so React tracks identity correctly if the images array is reordered. */}
         {images.map((image, index) => (
           <button
             key={image.src}
