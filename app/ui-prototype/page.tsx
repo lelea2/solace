@@ -228,6 +228,18 @@ const prototypes = [
     description: "A simple toggle component prototype.",
     icon: "🔘",
   },
+  {
+    href: "/ui-prototype/crypto-converter",
+    title: "Crypto Converter",
+    description: "A simple crypto converter component prototype.",
+    icon: "💱",
+  },
+  {
+    href: "/ui-prototype/snake-game",
+    title: "Snake Game",
+    description: "A simple snake game component prototype.",
+    icon: "🐍",
+  }
 ];
 
 export default function UIPrototypePage() {
