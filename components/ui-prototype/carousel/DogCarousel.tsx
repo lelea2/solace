@@ -25,6 +25,7 @@ export default function DogCarousel() {
     // - index before first goes to last
     const nextIndex = (index + totalDogs) % totalDogs;
 
+    // update current index, only render active image
     setCurrentIndex(nextIndex);
   };
 
