@@ -2,6 +2,7 @@ import Link from "next/link";
 import Carousel from "@/components/ui-prototype/carousel/Carousel";
 import CarouselII from "@/components/ui-prototype/carousel/CarouselII";
 import DogCarousel from "@/components/ui-prototype/carousel/DogCarousel";
+import InfiniteCarousel from "@/components/ui-prototype/carousel/InfiniteCarousel";
 
 export const metadata = {
   title: "Image Carousel — UI Prototype",
@@ -63,6 +64,9 @@ export default function CarouselPage() {
         </div>
         <div className="flex justify-center">
           <DogCarousel />
+        </div>
+        <div className="flex justify-center">
+          <InfiniteCarousel />
         </div>
       </div>
     </div>
