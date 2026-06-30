@@ -239,6 +239,12 @@ const prototypes = [
     title: "Snake Game",
     description: "A simple snake game component prototype.",
     icon: "🐍",
+  },
+  {
+    href: "/ui-prototype/projects",
+    title: "Projects",
+    description: "A showcase of shipped projects with live links and screenshots.",
+    icon: "🚀",
   }
 ];
 

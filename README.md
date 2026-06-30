@@ -15,11 +15,13 @@ This is hosted in https://solace-seven-tan.vercel.app/
 ## Project Structure
 
 ```
-app/                  # Next.js App Router pages
+app/                        # Next.js App Router pages
 components/
-  Nav.tsx             # Navigation
-  Resume.tsx          # Resume page component
-  ui-prototype/       # UI prototype components (Claude chat, Todo, Counter)
+  Nav.tsx                   # Navigation
+  Resume.tsx                # Resume page component
+  ui-prototype/             # TypeScript UI prototype components
+  ui-prototype-js/          # Plain-JS mirror of ui-prototype (interview reading)
+.claude/skills/tsx-to-js/   # Claude skill — see below
 ```
 
 ## Getting Started
@@ -29,6 +31,34 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to see the result.
+
+## ui-prototype-js — Interview Reference
+
+`components/ui-prototype-js/` is a plain-JavaScript mirror of `components/ui-prototype/`.
+TypeScript is stripped; CSS files and module imports are preserved. These files are not
+wired to any routes — they exist for interview reading only.
+
+### Adding a new component to ui-prototype-js
+
+When you create a new component under `components/ui-prototype/<folder>/`, mirror it
+with the `tsx-to-js` Claude skill:
+
+```
+translate <folder> to js
+```
+
+or more explicitly:
+
+```
+/tsx-to-js crypto-converter
+```
+
+The skill will:
+1. Copy all CSS files from `components/ui-prototype/<folder>/` verbatim.
+2. Strip TypeScript from every `.ts` / `.tsx` file and write `.js` equivalents.
+3. Print a summary of files written.
+
+The skill definition lives at `.claude/skills/tsx-to-js/SKILL.md`.
 
 ## Deploy on Vercel
 

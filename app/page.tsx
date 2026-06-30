@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const values = [
   {
     icon: "📖",
@@ -25,7 +23,7 @@ const values = [
 
 const highlights = [
   { value: "14+", label: "Years of Engineering" },
-  { value: "LinkedIn & Meta", label: "Recent Employers" },
+  { value: "Big Tech", label: "Recent Employers" },
   { value: "Staff → EM", label: "IC & Leadership Track" },
   { value: "3 Languages", label: "English · Vietnamese · French" },
 ];
@@ -44,9 +42,7 @@ export default function IntroductionPage() {
           </h1>
           <p className="text-slate-300 text-lg sm:text-xl leading-relaxed max-w-2xl mb-10">
             Staff Software Engineer and Engineering Manager with 14+ years of experience
-            leading high-impact engineering organizations at{" "}
-            <span className="text-[#70B5F9] font-medium">LinkedIn</span> and{" "}
-            <span className="text-[#6EA8FE] font-medium">Meta</span>.
+            leading high-impact engineering organizations.
           </p>
 
           {/* Dr. Seuss quote */}
@@ -61,12 +57,12 @@ export default function IntroductionPage() {
           </blockquote>
 
           <div className="flex flex-wrap gap-3">
-            <Link
+            {/* <Link
               href="/resume"
               className="inline-flex items-center gap-2 rounded-lg bg-white text-slate-900 px-5 py-2.5 text-sm font-semibold hover:bg-slate-100 transition-colors"
             >
               View Résumé →
-            </Link>
+            </Link> */}
             <a
               href="mailto:kareendao88@gmail.com"
               className="inline-flex items-center gap-2 rounded-lg border border-slate-700 text-slate-300 px-5 py-2.5 text-sm font-semibold hover:border-slate-500 hover:text-white transition-colors"

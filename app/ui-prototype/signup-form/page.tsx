@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SignupForm from "@/components/ui-prototype/signup-form/SignupForm";
+import {UserForm} from "@/components/ui-prototype/signup-form/GenericForm";
 
 export const metadata = {
   title: "Sign Up — UI Prototype",
@@ -27,6 +28,9 @@ export default function SignupFormPage() {
 
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <SignupForm />
+        </div>
+         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
+          <UserForm />
         </div>
       </div>
     </div>
