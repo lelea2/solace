@@ -16,6 +16,7 @@
  * edited. This keeps new forms declarative and makes validation/submission
  * consistent across the product.
  */
+"use client";
 
 import React, {
   createContext,
@@ -149,7 +150,7 @@ export function FormField({
         onChange={handleChange}
         {...props}
       >
-        {props.placeholder && (
+        {props.placeholder != null && (
           <option value="">{String(props.placeholder)}</option>
         )}
 

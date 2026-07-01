@@ -1,4 +1,3 @@
-import Image from "next/image";
 import VideoCard from "@/components/ui-prototype/projects/VideoCard";
 
 const projects = [
@@ -43,13 +42,16 @@ export default function Projects() {
           rel="noopener noreferrer"
           className="group flex flex-col rounded-xl border border-slate-800 bg-slate-900 overflow-hidden hover:border-slate-600 transition-colors"
         >
-          <div className="relative aspect-video bg-slate-800">
-            <Image
+          <div
+            className="relative w-full bg-slate-800 overflow-hidden"
+            style={{ aspectRatio: "16 / 9" }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src={project.screenshot}
               alt={`Screenshot of ${project.title}`}
-              fill
-              sizes="(min-width: 640px) 50vw, 100vw"
-              className="object-cover object-top"
+              className="w-full h-full"
+              style={{ objectFit: "cover", objectPosition: "top" }}
             />
           </div>
           <div className="p-5">
@@ -63,13 +65,16 @@ export default function Projects() {
         </a>
       ))}
       <div className="flex flex-col rounded-xl border border-slate-800 bg-slate-900 overflow-hidden">
-        <div className="relative aspect-video bg-slate-800">
-          <Image
+        <div
+          className="relative w-full bg-slate-800 overflow-hidden"
+          style={{ aspectRatio: "16 / 9" }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/ui-prototype/projects/ai-collaboration.png"
             alt="Preview of AI Document Collaboration"
-            fill
-            sizes="(min-width: 640px) 50vw, 100vw"
-            className="object-cover object-top opacity-50"
+            className="w-full h-full"
+            style={{ objectFit: "cover", objectPosition: "top", opacity: 0.5 }}
           />
           <span className="absolute top-3 right-3 rounded-full bg-amber-400 text-slate-900 text-xs font-semibold px-3 py-1">
             Coming Soon

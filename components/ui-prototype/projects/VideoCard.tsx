@@ -21,14 +21,18 @@ export default function VideoCard({
 
   return (
     <div className="flex flex-col rounded-xl border border-slate-800 bg-slate-900 overflow-hidden">
-      <div className="relative aspect-video bg-slate-800">
+      <div
+        className="relative w-full bg-slate-800 overflow-hidden"
+        style={{ aspectRatio: "16 / 9" }}
+      >
         <video
           ref={videoRef}
           src={src}
           preload="metadata"
           controls={isPlaying}
           playsInline
-          className="w-full h-full object-cover"
+          className="w-full h-full"
+          style={{ objectFit: "cover" }}
           onClick={!isPlaying ? handlePlay : undefined}
           onEnded={() => setIsPlaying(false)}
         />
