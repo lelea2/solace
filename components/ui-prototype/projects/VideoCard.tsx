@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import type { ReactNode } from "react";
 
 export default function VideoCard({
   title,
@@ -8,7 +9,7 @@ export default function VideoCard({
   src,
 }: {
   title: string;
-  description: string;
+  description: ReactNode;
   src: string;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);

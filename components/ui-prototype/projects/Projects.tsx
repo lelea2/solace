@@ -92,7 +92,20 @@ export default function Projects() {
       </div>
       <VideoCard
         title="Feature Drift"
-        description="A short demo recording — click to play."
+        description={
+          <>
+            A short demo recording — click to play. See the{" "}
+            <a
+              href="https://project-slide-demo.vercel.app/mlops-observability-demo.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-300 underline hover:text-white"
+            >
+              architecture design
+            </a>
+            .
+          </>
+        }
         src="/ui-prototype/projects/featuredrift.mov"
       />
     </div>
