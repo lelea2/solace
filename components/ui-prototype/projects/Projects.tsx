@@ -29,6 +29,13 @@ const projects = [
     description:
       "A mobile-first travel guide for Saigon and Hanoi — curated, district-organized recommendations with a voice agent that narrates the history and highlights of each spot.",
   },
+  {
+    title: "AI Collaborative Document Workspace",
+    href: "https://ai-workspaces-production.up.railway.app/",
+    screenshot: "/ui-prototype/projects/ai-collaboration.png",
+    description:
+      "A web application where humans and AI agents draft, review, and refine documents together in one editor, with full version history and decision tracking.",
+  },
 ];
 
 export default function Projects() {
@@ -64,32 +71,6 @@ export default function Projects() {
           </div>
         </a>
       ))}
-      <div className="flex flex-col rounded-xl border border-slate-800 bg-slate-900 overflow-hidden">
-        <div
-          className="relative w-full bg-slate-800 overflow-hidden"
-          style={{ aspectRatio: "16 / 9" }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/ui-prototype/projects/ai-collaboration.png"
-            alt="Preview of AI Document Collaboration"
-            className="w-full h-full"
-            style={{ objectFit: "cover", objectPosition: "top", opacity: 0.5 }}
-          />
-          <span className="absolute top-3 right-3 rounded-full bg-amber-400 text-slate-900 text-xs font-semibold px-3 py-1">
-            Coming Soon
-          </span>
-        </div>
-        <div className="p-5">
-          <h3 className="text-base font-semibold text-white mb-2">
-            AI Document Collaboration
-          </h3>
-          <p className="text-sm text-slate-400 leading-relaxed">
-            A real-time workspace where AI agents draft, review, and suggest
-            edits inline alongside human collaborators. In progress.
-          </p>
-        </div>
-      </div>
       <VideoCard
         title="Feature Drift"
         description={
