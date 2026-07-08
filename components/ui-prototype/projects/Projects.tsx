@@ -36,6 +36,13 @@ const projects = [
     description:
       "A web application where humans and AI agents draft, review, and refine documents together in one editor, with full version history and decision tracking.",
   },
+  {
+    title: "AI Interview Prep Tracker",
+    href: "https://interview-prep-production-1d06.up.railway.app/",
+    screenshot: "/ui-prototype/projects/interview-prep.png",
+    description:
+      "Paste messy job-search notes and get a structured tracker — active opportunities, upcoming interviews, follow-ups due, and high-priority prep topics, all organized into a sortable, filterable table.",
+  },
 ];
 
 export default function Projects() {
