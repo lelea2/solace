@@ -43,6 +43,13 @@ const projects = [
     description:
       "Paste messy job-search notes and get a structured tracker — active opportunities, upcoming interviews, follow-ups due, and high-priority prep topics, all organized into a sortable, filterable table.",
   },
+  {
+    title: "Learning Radar",
+    href: "https://track-learning-resource-production.up.railway.app/",
+    screenshot: "/ui-prototype/projects/learning-radar.png",
+    description:
+      "Turns scattered learning links into a structured, sortable study tracker — paste an article URL or note to auto-parse it into a row, plan today's study time by priority, and track reading progress over the last 14 days.",
+  },
 ];
 
 export default function Projects() {
