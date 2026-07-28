@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AuthInput from "@/components/ui-prototype/auth-input/AuthInput";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Auth Input — UI Prototype",
@@ -28,6 +29,8 @@ export default function AuthInputPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <AuthInput />
         </div>
+
+        <CodeSandbox folder="auth-input" entry="AuthInput.tsx" />
       </div>
     </div>
   );

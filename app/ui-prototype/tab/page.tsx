@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Tab from "@/components/ui-prototype/tab/Tab";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Tab — UI Prototype",
@@ -28,6 +29,8 @@ export default function TabPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <Tab />
         </div>
+
+        <CodeSandbox folder="tab" entry="Tab.tsx" />
       </div>
     </div>
   );

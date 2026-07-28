@@ -3,6 +3,7 @@ import ProgressBar from "@/components/ui-prototype/progress-bar/ProgressBar";
 import ProgressBarII from "@/components/ui-prototype/progress-bar/ProgressBarII";
 import ProgressBarIII from "@/components/ui-prototype/progress-bar/ProgressBarIII";
 import ProgressBarIV from "@/components/ui-prototype/progress-bar/ProgressBarIV";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Progress Bar — UI Prototype",
@@ -44,6 +45,8 @@ export default function ProgressBarPage() {
           <p>Progress Bar execute in a sequence, only 3 progress bars at a time</p>
           <ProgressBarIV />
         </div>
+
+        <CodeSandbox folder="progress-bar" entry="ProgressBar.tsx" />
       </div>
     </div>
   );

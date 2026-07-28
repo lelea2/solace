@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BookFlight from "@/components/ui-prototype/book-flight/BookFlight";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Book Flight — UI Prototype",
@@ -28,6 +29,8 @@ export default function BookFlightPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <BookFlight />
         </div>
+
+        <CodeSandbox folder="book-flight" entry="BookFlight.tsx" />
       </div>
     </div>
   );

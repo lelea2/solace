@@ -1,5 +1,6 @@
 import Link from "next/link";
 import UserDatabase from "@/components/ui-prototype/user-database/UserDatabase";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "User Database — UI Prototype",
@@ -28,6 +29,8 @@ export default function UserDatabasePage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <UserDatabase />
         </div>
+
+        <CodeSandbox folder="user-database" entry="UserDatabase.tsx" />
       </div>
     </div>
   );

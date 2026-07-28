@@ -3,6 +3,7 @@ import Carousel from "@/components/ui-prototype/carousel/Carousel";
 import CarouselII from "@/components/ui-prototype/carousel/CarouselII";
 import DogCarousel from "@/components/ui-prototype/carousel/DogCarousel";
 import InfiniteCarousel from "@/components/ui-prototype/carousel/InfiniteCarousel";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Image Carousel — UI Prototype",
@@ -68,6 +69,8 @@ export default function CarouselPage() {
         <div className="flex justify-center">
           <InfiniteCarousel />
         </div>
+
+        <CodeSandbox folder="carousel" entry="Carousel.tsx" />
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import StarRating from "@/components/ui-prototype/star-rating/StarRating";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Star Rating — UI Prototype",
@@ -30,6 +31,8 @@ export default function StarRatingPage() {
           <StarRating maxStars={5} initialRating={3} />
           <StarRating maxStars={10} initialRating={6} />
         </div>
+
+        <CodeSandbox folder="star-rating" entry="StarRating.tsx" />
       </div>
     </div>
   );

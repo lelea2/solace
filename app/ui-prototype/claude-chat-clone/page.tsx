@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ClaudeChat from "@/components/ui-prototype/claude-clone-chat/ClaudeChat";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Claude Chat — UI Prototype",
@@ -28,6 +29,8 @@ export default function ClaudeChatPage() {
         <div className="flex justify-center">
           <ClaudeChat />
         </div>
+
+        <CodeSandbox folder="claude-clone-chat" entry="ClaudeChat.tsx" />
       </div>
     </div>
   );

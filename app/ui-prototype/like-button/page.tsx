@@ -1,5 +1,6 @@
 import Link from "next/link";
 import LikeButton from "@/components/ui-prototype/like-button/LikeButton";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Like Button — UI Prototype",
@@ -28,6 +29,8 @@ export default function LikeButtonPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <LikeButton />
         </div>
+
+        <CodeSandbox folder="like-button" entry="LikeButton.tsx" />
       </div>
     </div>
   );

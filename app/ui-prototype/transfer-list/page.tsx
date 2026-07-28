@@ -1,6 +1,7 @@
 import Link from "next/link";
 import TransferList from "@/components/ui-prototype/transfer-list/TransferList";
 import TransferListII from "@/components/ui-prototype/transfer-list/TransferListII";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Transfer List — UI Prototype",
@@ -32,6 +33,8 @@ export default function TransferListPage() {
          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <TransferListII />
         </div>
+
+        <CodeSandbox folder="transfer-list" entry="TransferList.tsx" />
       </div>
     </div>
   );

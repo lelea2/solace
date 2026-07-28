@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SnakeGame from "@/components/ui-prototype/snake-game/SnakeGame";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Snake Game — UI Prototype",
@@ -28,6 +29,8 @@ export default function SnakeGamePage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <SnakeGame />
         </div>
+
+        <CodeSandbox folder="snake-game" entry="SnakeGame.tsx" />
       </div>
     </div>
   );

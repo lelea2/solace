@@ -1,5 +1,6 @@
 import Link from "next/link";
 import RollDice from "@/components/ui-prototype/roll-dice/RollDice";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Roll Dice — UI Prototype",
@@ -28,6 +29,8 @@ export default function RollDicePage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <RollDice />
         </div>
+
+        <CodeSandbox folder="roll-dice" entry="RollDice.tsx" />
       </div>
     </div>
   );

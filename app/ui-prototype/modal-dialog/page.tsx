@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AppModalDialog from "@/components/ui-prototype/modal-dialog/AppModalDialog";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Modal Dialog — UI Prototype",
@@ -29,6 +30,8 @@ export default function ModalDialogPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <AppModalDialog />
         </div>
+
+        <CodeSandbox folder="modal-dialog" entry="AppModalDialog.tsx" />
       </div>
     </div>
   );

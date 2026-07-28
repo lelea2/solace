@@ -1,5 +1,6 @@
 import Link from "next/link";
 import WhackAMole from "@/components/ui-prototype/whack-a-mole/WhackAMole";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Whack-a-Mole — UI Prototype",
@@ -28,6 +29,8 @@ export default function WhackAMolePage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <WhackAMole />
         </div>
+
+        <CodeSandbox folder="whack-a-mole" entry="WhackAMole.tsx" />
       </div>
     </div>
   );

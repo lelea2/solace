@@ -1,5 +1,6 @@
 import Link from "next/link";
 import App from "@/components/ui-prototype/data-table/App";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Data Table — UI Prototype",
@@ -29,6 +30,8 @@ export default function DataTablePage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <App />
         </div>
+
+        <CodeSandbox folder="data-table" entry="App.tsx" />
       </div>
     </div>
   );

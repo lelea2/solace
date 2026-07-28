@@ -1,5 +1,6 @@
 import Link from "next/link";
 import MemoryGame from "@/components/ui-prototype/memory-game/MemoryGame";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Memory Game — UI Prototype",
@@ -28,6 +29,8 @@ export default function MemoryGamePage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <MemoryGame />
         </div>
+
+        <CodeSandbox folder="memory-game" entry="MemoryGame.tsx" />
       </div>
     </div>
   );

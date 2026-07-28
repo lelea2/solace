@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Wordle from "@/components/ui-prototype/wordle/Wordle";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Wordle — UI Prototype",
@@ -28,6 +29,8 @@ export default function WordlePage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <Wordle />
         </div>
+
+        <CodeSandbox folder="wordle" entry="Wordle.tsx" />
       </div>
     </div>
   );

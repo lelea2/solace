@@ -1,5 +1,6 @@
 import Link from "next/link";
 import ConnectFour from "@/components/ui-prototype/connect-four/ConnectFour";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Connect Four — UI Prototype",
@@ -28,6 +29,8 @@ export default function ConnectFourPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <ConnectFour />
         </div>
+
+        <CodeSandbox folder="connect-four" entry="ConnectFour.tsx" />
       </div>
     </div>
   );

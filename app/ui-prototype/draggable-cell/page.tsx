@@ -1,5 +1,6 @@
 import Link from "next/link";
 import DraggableCell from "@/components/ui-prototype/draggable-cell/DraggableCell";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Draggable Cell — UI Prototype",
@@ -28,6 +29,8 @@ export default function DraggableCellPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-16 flex items-center justify-center">
           <DraggableCell />
         </div>
+
+        <CodeSandbox folder="draggable-cell" entry="DraggableCell.tsx" />
       </div>
     </div>
   );

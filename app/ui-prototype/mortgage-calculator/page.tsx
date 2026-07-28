@@ -1,5 +1,6 @@
 import Link from "next/link";
 import MortgageCalculator from "@/components/ui-prototype/mortgage-calculator/MortgageCalculator";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Mortgage Calculator — UI Prototype",
@@ -28,6 +29,8 @@ export default function MortgageCalculatorPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <MortgageCalculator />
         </div>
+
+        <CodeSandbox folder="mortgage-calculator" entry="MortgageCalculator.tsx" />
       </div>
     </div>
   );

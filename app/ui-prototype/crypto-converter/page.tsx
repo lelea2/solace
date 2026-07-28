@@ -1,5 +1,6 @@
 import Link from "next/link";
 import CryptoConverter from "@/components/ui-prototype/crypto-converter/CryptoConverter";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Crypto Converter — UI Prototype",
@@ -28,6 +29,8 @@ export default function CryptoConverterPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-16 flex items-center justify-center">
           <CryptoConverter />
         </div>
+
+        <CodeSandbox folder="crypto-converter" entry="CryptoConverter.tsx" />
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Projects from "@/components/ui-prototype/projects/Projects";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Projects — UI Prototype",
@@ -26,6 +27,8 @@ export default function ProjectsPage() {
         </p>
 
         <Projects />
+
+        <CodeSandbox folder="projects" entry="Projects.tsx" />
       </div>
     </div>
   );

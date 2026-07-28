@@ -1,5 +1,6 @@
 import Link from "next/link";
 import UndoCounter from "@/components/ui-prototype/undo-counter/UndoCounter";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Undoable Counter — UI Prototype",
@@ -28,6 +29,8 @@ export default function UndoableCounterPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <UndoCounter />
         </div>
+
+        <CodeSandbox folder="undo-counter" entry="UndoCounter.tsx" />
       </div>
     </div>
   );

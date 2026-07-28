@@ -1,5 +1,6 @@
 import Link from "next/link";
 import HoligrailLayout from "@/components/ui-prototype/holigrail-layout/HoligrailLayout";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "HoligrailLayout — UI Prototype",
@@ -24,6 +25,8 @@ export default function HackerNewsPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <HoligrailLayout />
         </div>
+
+        <CodeSandbox folder="holigrail-layout" entry="HoligrailLayout.tsx" />
       </div>
     </div>
   );

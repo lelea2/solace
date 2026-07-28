@@ -1,5 +1,6 @@
 import Link from "next/link";
 import TodoList from "@/components/ui-prototype/todo/TodoList";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Todo List — UI Prototype",
@@ -28,6 +29,8 @@ export default function TodoPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <TodoList />
         </div>
+
+        <CodeSandbox folder="todo" entry="TodoList.tsx" />
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import GridLight from "@/components/ui-prototype/grid-light/GridLight";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Grid Light — UI Prototype",
@@ -28,6 +29,8 @@ export default function GridLightPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <GridLight />
         </div>
+
+        <CodeSandbox folder="grid-light" entry="GridLight.tsx" />
       </div>
     </div>
   );

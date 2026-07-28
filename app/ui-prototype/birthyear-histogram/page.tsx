@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BirthYearHistogram from "@/components/ui-prototype/birthyear-histogram/BirthYearHistogram";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Birth Year Histogram — UI Prototype",
@@ -28,6 +29,8 @@ export default function BirthYearHistogramPage() {
         <div className="flex justify-center">
           <BirthYearHistogram />
         </div>
+
+        <CodeSandbox folder="birthyear-histogram" entry="BirthYearHistogram.tsx" />
       </div>
     </div>
   );

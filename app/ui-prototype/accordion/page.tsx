@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Accordion from "@/components/ui-prototype/accordion/Accordion";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Accordion — UI Prototype",
@@ -28,6 +29,8 @@ export default function AccordionPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <Accordion />
         </div>
+
+        <CodeSandbox folder="accordion" entry="Accordion.tsx" />
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import Link from "next/link";
 import HackerNews from "@/components/ui-prototype/hacker-news/HackerNews";
 import JobBoard from "@/components/ui-prototype/hacker-news/JobBoard";
 import InfiniteScroll from "@/components/ui-prototype/hacker-news/InfiniteScroll";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Hacker News — UI Prototype",
@@ -37,6 +38,8 @@ export default function HackerNewsPage() {
          <div className="rounded-2xl border p-10 border-slate-800 bg-slate-900">
           <InfiniteScroll />
         </div>
+
+        <CodeSandbox folder="hacker-news" entry="HackerNews.tsx" />
       </div>
     </div>
   );

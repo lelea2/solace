@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PixelArt from "@/components/ui-prototype/pixel-art/PixelArt";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Pixel Art — UI Prototype",
@@ -28,6 +29,8 @@ export default function PixelArtPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <PixelArt />
         </div>
+
+        <CodeSandbox folder="pixel-art" entry="PixelArt.tsx" />
       </div>
     </div>
   );

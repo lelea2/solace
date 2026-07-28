@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Counter from "@/components/ui-prototype/counter/Counter";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Counter — UI Prototype",
@@ -28,6 +29,8 @@ export default function CounterPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-16 flex items-center justify-center">
           <Counter />
         </div>
+
+        <CodeSandbox folder="counter" entry="Counter.tsx" />
       </div>
     </div>
   );

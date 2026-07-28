@@ -29,7 +29,7 @@ app/ui-prototype/modal-dialog/page.tsx   ← route, metadata, shell
 components/ui-prototype/modal-dialog/    ← AppModalDialog.tsx, ModalDialog.tsx, styles.module.css
 ```
 
-To add a new prototype: create `components/ui-prototype/<name>/`, add the route page, and add an entry to the `prototypes` array in `app/ui-prototype/page.tsx` plus a link entry in `components/Nav.tsx`.
+To add a new prototype: create `components/ui-prototype/<name>/`, add the route page (ending with `<CodeSandbox folder="<name>" entry="<EntryFile>.tsx" />` to show its source), and add an entry to the `prototypes` array in `app/ui-prototype/page.tsx` plus a link entry in `components/Nav.tsx`.
 
 ### Global shell
 

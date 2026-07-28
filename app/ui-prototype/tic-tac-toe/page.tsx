@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Tictactoe from "@/components/ui-prototype/tic-tac-toe/Tictactoe";
 import Tictactoe_dynamic from "@/components/ui-prototype/tic-tac-toe/Tictactoe_dynamic";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Tic Tac Toe — UI Prototype",
@@ -32,6 +33,8 @@ export default function TictactoePage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <Tictactoe_dynamic />
         </div>
+
+        <CodeSandbox folder="tic-tac-toe" entry="Tictactoe.tsx" />
       </div>
     </div>
   );

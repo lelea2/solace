@@ -1,5 +1,6 @@
 import Link from "next/link";
 import TrafficLight from "@/components/ui-prototype/traffic-light/TrafficLight";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Traffic Light — UI Prototype",
@@ -28,6 +29,8 @@ export default function TrafficLightPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <TrafficLight />
         </div>
+
+        <CodeSandbox folder="traffic-light" entry="TrafficLight.tsx" />
       </div>
     </div>
   );

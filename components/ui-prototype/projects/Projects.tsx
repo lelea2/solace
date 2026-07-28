@@ -1,4 +1,22 @@
 import VideoCard from "@/components/ui-prototype/projects/VideoCard";
+import PdfCard from "@/components/ui-prototype/projects/PdfCard";
+
+const managerProjects = [
+  {
+    title: "Feature Drift Detection",
+    href: "/ui-prototype/projects/Feature%20Drift.docx.pdf",
+    thumbnail: "/ui-prototype/projects/feature-drift-pdf-thumb.png",
+    description:
+      "Led the cross-functional MLOps observability initiative that turned fragmented, manually-correlated signals into an automated, explainable feature-health platform — aligning 10+ engineers across model training, serving, data science, and SRE.",
+  },
+  {
+    title: "Agent Copilot for Model Foundry",
+    href: "/ui-prototype/projects/Model%20Foundry%20Copilot.docx.pdf",
+    thumbnail: "/ui-prototype/projects/model-foundry-pdf-thumb.png",
+    description:
+      "Led the platform initiative for a grounded observability copilot (web UI + CLI) that cuts incident diagnosis from hours of manual investigation to seconds of cited evidence, while keeping Model Foundry's metrics APIs as the source of truth.",
+  },
+];
 
 const projects = [
   {
@@ -54,55 +72,74 @@ const projects = [
 
 export default function Projects() {
   return (
-    <div className="grid sm:grid-cols-2 gap-6">
-      {projects.map((project) => (
-        <a
-          key={project.href}
-          href={project.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group flex flex-col rounded-xl border border-slate-800 bg-slate-900 overflow-hidden hover:border-slate-600 transition-colors"
-        >
-          <div
-            className="relative w-full bg-slate-800 overflow-hidden"
-            style={{ aspectRatio: "16 / 9" }}
+    <>
+      <div className="grid sm:grid-cols-2 gap-6">
+        {projects.map((project) => (
+          <a
+            key={project.href}
+            href={project.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col rounded-xl border border-slate-800 bg-slate-900 overflow-hidden hover:border-slate-600 transition-colors"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={project.screenshot}
-              alt={`Screenshot of ${project.title}`}
-              className="w-full h-full"
-              style={{ objectFit: "cover", objectPosition: "top" }}
-            />
-          </div>
-          <div className="p-5">
-            <h3 className="text-base font-semibold text-white group-hover:text-slate-100 mb-2">
-              {project.title} ↗
-            </h3>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              {project.description}
-            </p>
-          </div>
-        </a>
-      ))}
-      <VideoCard
-        title="Feature Drift"
-        description={
-          <>
-            A short demo recording — click to play. See the{" "}
-            <a
-              href="https://project-slide-demo.vercel.app/mlops-observability-demo.html"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-300 underline hover:text-white"
+            <div
+              className="relative w-full bg-slate-800 overflow-hidden"
+              style={{ aspectRatio: "16 / 9" }}
             >
-              architecture design
-            </a>
-            .
-          </>
-        }
-        src="/ui-prototype/projects/featuredrift.mov"
-      />
-    </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={project.screenshot}
+                alt={`Screenshot of ${project.title}`}
+                className="w-full h-full"
+                style={{ objectFit: "cover", objectPosition: "top" }}
+              />
+            </div>
+            <div className="p-5">
+              <h3 className="text-base font-semibold text-white group-hover:text-slate-100 mb-2">
+                {project.title} ↗
+              </h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                {project.description}
+              </p>
+            </div>
+          </a>
+        ))}
+        <VideoCard
+          title="Feature Drift"
+          description={
+            <>
+              A short demo recording — click to play. See the{" "}
+              <a
+                href="https://project-slide-demo.vercel.app/mlops-observability-demo.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-300 underline hover:text-white"
+              >
+                architecture design
+              </a>
+              .
+            </>
+          }
+          src="/ui-prototype/projects/featuredrift.mov"
+        />
+      </div>
+
+      <div className="mt-16">
+        <p className="text-slate-400 text-sm font-mono tracking-widest uppercase mb-4">
+          Led as Engineering Manager
+        </p>
+        <div className="grid sm:grid-cols-2 gap-6">
+          {managerProjects.map((project) => (
+            <PdfCard
+              key={project.href}
+              title={project.title}
+              href={project.href}
+              thumbnail={project.thumbnail}
+              description={project.description}
+            />
+          ))}
+        </div>
+      </div>
+    </>
   );
 }

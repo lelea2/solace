@@ -1,6 +1,7 @@
 import Link from "next/link";
 import StopWatch from "@/components/ui-prototype/stop-watch/StopWatch";
 import StopWatchI from "@/components/ui-prototype/stop-watch/StopWatchI";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 
 export const metadata = {
@@ -33,6 +34,8 @@ export default function StopWatchPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <StopWatch />
         </div>
+
+        <CodeSandbox folder="stop-watch" entry="StopWatch.tsx" />
       </div>
     </div>
   );

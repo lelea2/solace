@@ -1,5 +1,6 @@
 import Link from "next/link";
 import GenerateTable from "@/components/ui-prototype/generate-table/GenerateTable";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Generate Table — UI Prototype",
@@ -28,6 +29,8 @@ export default function GenerateTablePage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <GenerateTable />
         </div>
+
+        <CodeSandbox folder="generate-table" entry="GenerateTable.tsx" />
       </div>
     </div>
   );

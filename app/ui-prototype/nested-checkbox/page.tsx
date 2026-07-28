@@ -1,5 +1,6 @@
 import Link from "next/link";
 import NestedCheckbox from "@/components/ui-prototype/nested-checkbox/NestedCheckbox";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "Nested Checkbox — UI Prototype",
@@ -31,6 +32,8 @@ export default function NestedCheckboxPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <NestedCheckbox />
         </div>
+
+        <CodeSandbox folder="nested-checkbox" entry="NestedCheckbox.tsx" />
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import FileExplorer from "@/components/ui-prototype/file-explorer/FileExplorer";
+import CodeSandbox from "@/components/code-sandbox/CodeSandbox";
 
 export const metadata = {
   title: "File Explorer — UI Prototype",
@@ -28,6 +29,8 @@ export default function FileExplorerPage() {
         <div className="rounded-2xl border border-slate-800 bg-slate-900 p-10">
           <FileExplorer />
         </div>
+
+        <CodeSandbox folder="file-explorer" entry="FileExplorer.tsx" />
       </div>
     </div>
   );
